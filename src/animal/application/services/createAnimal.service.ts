@@ -12,7 +12,7 @@ export class CreateAnimalService {
         throw new Error(resultValidation.error.message);
       }
 
-      const existingAnimal = await this.animalRepository.getAnimalById(newAnimal.id || 0);
+      const existingAnimal = await this.animalRepository.getAnimalById(newAnimal.id ?? 0);
       if (existingAnimal) {
         throw new Error("El animal ya existe");
       }

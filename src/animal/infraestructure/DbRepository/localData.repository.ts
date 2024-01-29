@@ -13,7 +13,7 @@ export class LocalDataRepositoryAnimal implements AnimalRepository {
   }
 
   async getAnimalById(animalId: number): Promise<Animal> {
-    return this.animalsLocalData.find((animal) => animal.id === animalId) || ({} as Animal);
+    return this.animalsLocalData.find((animal) => animal.id === animalId) ?? ({} as Animal);
   }
 
   async createAnimal(animal: Animal): Promise<Animal> {

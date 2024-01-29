@@ -1,9 +1,19 @@
-import express from 'express';
-import cors from 'cors';
+let express =require('express')
+const cors = require('cors');
+
 import indexRouter from "./src/shared/infraestructure/index.router";
 import { db } from "./src/shared/application/mysqlConnection"
 
-const app = express();
+let exemple = express();
+exemple.disable("x-powered-by");
+
+let corsOptions = {
+  origin: 'trustedwebsite.com' 
+};
+
+let app = express();
+
+app.use((cors(corsOptions)))
 const PORT = "3000";
 
 app.use(cors());
